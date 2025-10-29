@@ -1,0 +1,97 @@
+/* Основной контейнер шапки */
+.header {
+  background: rgb(13, 13, 13); /* полупрозрачный тёмный фон */
+  backdrop-filter: blur(8px); /* эффект размытия фона за шапкой */
+  padding-block: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.644);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: background 0.3s ease;
+}
+
+/* Контент внутри контейнера */
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* Навигация */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* Ссылки навигации */
+.link {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 18px;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #ff4d4d;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #ff4d4d;
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+/* Иконка поиска */
+.nav :global(svg) {
+  font-size: 22px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    color: #ff4d4d;
+    transform: scale(1.1);
+  }
+}
+
+/* Логотип */
+:global(img) {
+  border-radius: 5px;
+  object-fit: contain;
+}
+
+/* Контейнер */
+:global(.container) {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav {
+    gap: 18px;
+  }
+
+  .link {
+    font-size: 16px;
+  }
+}
