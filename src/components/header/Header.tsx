@@ -9,7 +9,9 @@ const Header = () => {
     <header className={scss.header}>
       <div className="container">
         <div className={scss.content}>
-          <Image src={logo} alt="logo" width={160} height={60} priority />
+          <Link href={"/"}>
+            <Image src={logo} alt="logo" width={160} height={60} priority />
+          </Link>
           <nav className={scss.nav}>
             <Link href="/movies" className={scss.link}>
               Movies
@@ -17,7 +19,7 @@ const Header = () => {
             <Link href="/tvShows" className={scss.link}>
               TV Shows
             </Link>
-            <Link href={"/"}>
+            <Link href={""}>
               <IoIosSearch />
             </Link>
           </nav>
